@@ -1,4 +1,4 @@
-import { FormButtonGroup, FormItem, Input, Reset } from '@formily/antd-v5'
+import { FormButtonGroup, FormItem, Input, Reset } from '@ducui/antd-v6'
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/react'
 import React from 'react'

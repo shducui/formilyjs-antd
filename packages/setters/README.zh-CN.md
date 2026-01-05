@@ -1,9 +1,9 @@
-# @formily/antd-v5-setters
+# @ducui/antd-v6-setters
 
 > Formily Designable 设置器
 
 ## 安装
 
 ```bash
-npm install @formily/antd-v5-setters --save
+npm install @ducui/antd-v6-setters --save
 ```

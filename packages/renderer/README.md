@@ -1,9 +1,9 @@
-# @formily/antd-v5-renderer
+# @ducui/antd-v6-renderer
 
 > Formily Designable Settings Form
 
 ## Install
 
 ```bash
-npm install @formily/antd-v5-renderer --save
+npm install @ducui/antd-v6-renderer --save
 ```

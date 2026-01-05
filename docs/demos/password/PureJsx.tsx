@@ -4,7 +4,7 @@ import {
   FormLayout,
   Password,
   Submit,
-} from '@formily/antd-v5'
+} from '@ducui/antd-v6'
 import { createForm } from '@formily/core'
 import { Field, FormProvider } from '@formily/react'
 import React from 'react'

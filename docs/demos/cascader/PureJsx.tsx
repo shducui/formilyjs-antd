@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cascader, FormItem, FormButtonGroup, Submit } from '@formily/antd-v5'
+import { Cascader, FormItem, FormButtonGroup, Submit } from '@ducui/antd-v6'
 import {
   createForm,
   onFieldReact,
