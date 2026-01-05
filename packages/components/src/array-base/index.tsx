@@ -207,7 +207,7 @@ const Copy = forwardRef<HTMLButtonElement, CommonProps>((props, ref) => {
   if (array.field?.pattern !== 'editable') return null
   return wrapSSR(
     <Button
-      type="ghost"
+      ghost
       {...props}
       style={{
         padding: '0 0 0 6px',
@@ -243,7 +243,7 @@ const Copy = forwardRef<HTMLButtonElement, CommonProps>((props, ref) => {
   )
 })
 
-const Remove = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
+const Remove = forwardRef<HTMLButtonElement, CommonProps>((props, ref) => {
   const index = useIndex(props.index)
   const self = useField()
   const array = useArray()
@@ -254,7 +254,7 @@ const Remove = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
   if (array.field?.pattern !== 'editable') return null
   return wrapSSR(
     <Button
-      type="ghost"
+      ghost
       {...props}
       style={{
         padding: '0 0 0 6px',
@@ -287,7 +287,7 @@ const Remove = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
   )
 })
 
-const MoveDown = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
+const MoveDown = forwardRef<HTMLButtonElement, CommonProps>((props, ref) => {
   const index = useIndex(props.index)
   const self = useField()
   const array = useArray()
@@ -296,7 +296,7 @@ const MoveDown = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
   if (array.field?.pattern !== 'editable') return null
   return (
     <Button
-      type="ghost"
+      ghost
       {...props}
       style={{
         padding: '0 0 0 6px',
@@ -328,7 +328,7 @@ const MoveDown = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
   )
 })
 
-const MoveUp = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
+const MoveUp = forwardRef<HTMLButtonElement, CommonProps>((props, ref) => {
   const index = useIndex(props.index)
   const self = useField()
   const array = useArray()
@@ -337,7 +337,7 @@ const MoveUp = forwardRef<HTMLSpanElement, CommonProps>((props, ref) => {
   if (array.field?.pattern !== 'editable') return null
   return (
     <Button
-      type="ghost"
+      ghost
       {...props}
       style={{
         padding: '0 0 0 6px',

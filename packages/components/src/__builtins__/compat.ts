@@ -1,20 +1,24 @@
+import type { CardProps } from 'antd'
+import type { Variant } from 'antd/es/config-provider'
 import type { CSSProperties } from 'react'
-
-type Variant = 'outlined' | 'filled' | 'borderless' | (string & {})
 
 type VariantProps = {
   bordered?: boolean
   variant?: Variant
 }
 
+type CardVariant = CardProps['variant']
+type CardStyles = CardProps['styles']
+
+type CardVariantProps = {
+  bordered?: boolean
+  variant?: CardVariant
+}
+
 type CardStyleProps = {
   headStyle?: CSSProperties
   bodyStyle?: CSSProperties
-  styles?: {
-    header?: CSSProperties
-    body?: CSSProperties
-    [key: string]: CSSProperties | undefined
-  }
+  styles?: CardStyles
 }
 
 export const normalizeVariantProps = <T extends VariantProps>(
@@ -47,29 +51,54 @@ export const normalizeVariantProps = <T extends VariantProps>(
   return next as T
 }
 
-export const normalizeCardProps = <T extends VariantProps & CardStyleProps>(
-  props: T
-) => {
-  const { headStyle, bodyStyle, styles, ...rest } = props
-  const shouldMergeStyles = !!styles || !!headStyle || !!bodyStyle
-  let nextStyles = styles
+const mergeCardStyles = (
+  styles: CardStyles,
+  headStyle?: CSSProperties,
+  bodyStyle?: CSSProperties
+): CardStyles => {
+  if (!headStyle && !bodyStyle) return styles
 
-  if (shouldMergeStyles) {
-    nextStyles = { ...styles }
+  const mergeSections = (
+    base: Record<string, CSSProperties | undefined>
+  ): Record<string, CSSProperties | undefined> => {
+    const next = { ...base }
     if (headStyle) {
-      nextStyles.header = { ...(styles?.header || {}), ...headStyle }
+      next.header = { ...(base.header || {}), ...headStyle }
     }
     if (bodyStyle) {
-      nextStyles.body = { ...(styles?.body || {}), ...bodyStyle }
+      next.body = { ...(base.body || {}), ...bodyStyle }
+    }
+    return next
+  }
+
+  if (typeof styles === 'function') {
+    return (info) => {
+      const resolved = styles(info) as Record<string, CSSProperties | undefined>
+      return mergeSections(resolved || {})
     }
   }
 
-  const nextProps = (
-    shouldMergeStyles ? { ...rest, styles: nextStyles } : rest
-  ) as T
+  return mergeSections(
+    (styles as Record<string, CSSProperties | undefined>) || {}
+  )
+}
 
-  return normalizeVariantProps(nextProps, {
-    borderedTrueVariant: 'outlined',
-    borderedFalseVariant: 'filled',
-  })
+export const normalizeCardProps = <T extends CardVariantProps & CardStyleProps>(
+  props: T
+) => {
+  const { headStyle, bodyStyle, styles, bordered, variant, ...rest } = props
+  const shouldMergeStyles = !!styles || !!headStyle || !!bodyStyle
+  const next = { ...rest } as Record<string, unknown>
+
+  if (shouldMergeStyles) {
+    next.styles = mergeCardStyles(styles, headStyle, bodyStyle)
+  }
+
+  if (variant !== undefined) {
+    next.variant = variant
+  } else if (bordered !== undefined) {
+    next.variant = bordered ? 'outlined' : 'borderless'
+  }
+
+  return next as T
 }

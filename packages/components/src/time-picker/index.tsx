@@ -12,11 +12,7 @@ import {
 } from '../__builtins__'
 import { PreviewText } from '../preview-text'
 
-type ComposedTimePicker = React.FC<
-  React.PropsWithChildren<AntdTimePickerProps>
-> & {
-  RangePicker?: React.FC<React.PropsWithChildren<TimeRangePickerProps>>
-}
+type ComposedTimePicker = typeof AntdTimePicker
 
 const mapTimeFormat = function () {
   return (props: any) => {
@@ -39,18 +35,20 @@ const mapTimeFormat = function () {
   }
 }
 
-const InternalTimePicker: ComposedTimePicker = connect(
+const InternalTimePicker = connect(
   AntdTimePicker,
   mapProps(mapTimeFormat()),
   mapReadPretty(PreviewText.TimePicker)
-)
+) as unknown as ComposedTimePicker
 
 const RangePicker = connect(
   AntdTimePicker.RangePicker,
   mapProps(mapTimeFormat()),
   mapReadPretty(PreviewText.TimeRangePicker)
-)
+) as typeof AntdTimePicker.RangePicker
 
-export const TimePicker = Object.assign(InternalTimePicker, { RangePicker })
+export const TimePicker = Object.assign(InternalTimePicker, {
+  RangePicker,
+}) as ComposedTimePicker
 
 export default TimePicker

@@ -1,4 +1,4 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs'
+import type { CSSInterpolation } from '@ant-design/cssinjs'
 import { useStyleRegister } from '@ant-design/cssinjs'
 import { merge } from '@formily/shared'
 import type { ComponentTokenMap, GlobalToken } from 'antd/es/theme/interface'
@@ -32,7 +32,7 @@ export type GenerateStyle<
 export const genCommonStyle = (
   token: any,
   componentPrefixCls: string
-): CSSObject => {
+): CSSInterpolation => {
   const { fontFamily, fontSize } = token
 
   const rootPrefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`
@@ -73,35 +73,34 @@ export const genStyleHook = <ComponentName extends OverrideComponent>(
     const { theme, token, hashId } = useToken()
     const { getPrefixCls, iconPrefixCls, csp } = useConfig()
     const rootPrefixCls = getPrefixCls()
-    return [
-      useStyleRegister(
-        {
-          nonce: csp?.nonce,
-          theme,
-          token,
-          hashId,
-          path: ['formily-antd', component, prefixCls, iconPrefixCls],
-        },
-        () => {
-          const componentCls = `.${prefixCls}`
-          const mergedToken: TokenWithCommonCls<GlobalToken> = merge(token, {
-            ...token['Form'], // Merge the antd form token
-            componentCls,
-            prefixCls,
-            iconCls: `.${iconPrefixCls}`,
-            antCls: `.${rootPrefixCls}`,
-          })
+    useStyleRegister(
+      {
+        nonce: csp?.nonce,
+        theme,
+        token,
+        hashId,
+        path: ['formily-antd', component, prefixCls, iconPrefixCls],
+      },
+      () => {
+        const componentCls = `.${prefixCls}`
+        const mergedToken: TokenWithCommonCls<GlobalToken> = merge(token, {
+          ...token['Form'], // Merge the antd form token
+          componentCls,
+          prefixCls,
+          iconCls: `.${iconPrefixCls}`,
+          antCls: `.${rootPrefixCls}`,
+        })
 
-          const styleInterpolation = styleFn(mergedToken, {
-            hashId,
-            prefixCls,
-            rootPrefixCls,
-            iconPrefixCls,
-          })
-          return [genCommonStyle(token, prefixCls), styleInterpolation]
-        }
-      ),
-      hashId,
-    ]
+        const styleInterpolation = styleFn(mergedToken, {
+          hashId,
+          prefixCls,
+          rootPrefixCls,
+          iconPrefixCls,
+        })
+        return [genCommonStyle(token, prefixCls), styleInterpolation]
+      }
+    )
+
+    return [(node) => node as React.ReactElement, hashId]
   }
 }
