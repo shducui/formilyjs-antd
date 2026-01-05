@@ -26,6 +26,6 @@ footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by sel
 
 ```bash
 npm install --save antd dayjs
-npm install --save @formily/core @formily/react @ducui/antd-v6
+npm install --save @formily/core @formily/react @ducui-formilyjs/antd-v6
 
 ```

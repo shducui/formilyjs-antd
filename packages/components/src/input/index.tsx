@@ -3,19 +3,24 @@ import { connect, mapProps, mapReadPretty, ReactFC } from '@formily/react'
 import { Input as AntdInput } from 'antd'
 import type { InputProps } from 'antd/es/input'
 import React from 'react'
+import { normalizeVariantProps } from '../__builtins__'
 import { PreviewText } from '../preview-text'
 
 const InternalInput: ReactFC<InputProps> = connect(
   AntdInput,
   mapProps((props, field) => {
+    const nextProps = normalizeVariantProps(props, {
+      borderedTrueVariant: 'outlined',
+      borderedFalseVariant: 'borderless',
+    })
     return {
-      ...props,
+      ...nextProps,
       suffix: (
         <span>
           {field?.['loading'] || field?.['validating'] ? (
             <LoadingOutlined />
           ) : (
-            props.suffix
+            nextProps.suffix
           )}
         </span>
       ),

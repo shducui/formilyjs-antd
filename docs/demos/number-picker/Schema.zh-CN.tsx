@@ -1,4 +1,9 @@
-import { FormButtonGroup, FormItem, NumberPicker, Submit } from '@ducui/antd-v6'
+import {
+  FormButtonGroup,
+  FormItem,
+  NumberPicker,
+  Submit,
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider, ISchema } from '@formily/react'
 import React from 'react'

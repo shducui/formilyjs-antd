@@ -4,9 +4,9 @@ English | [简体中文](./README.zh-CN.md)
 
 <p align="center">
 <img src="https://img.alicdn.com/tfs/TB1fHhZu4D1gK0jSZFyXXciOVXa-2500-1200.png">
-<img src="https://img.shields.io/npm/dt/@ducui/antd-v6"/>
-<img src="https://img.shields.io/npm/dm/@ducui/antd-v6"/>
-<a href="https://www.npmjs.com/package/@ducui/antd-v6"><img src="https://img.shields.io/npm/v/@ducui/antd-v6.svg"></a>
+<img src="https://img.shields.io/npm/dt/@ducui-formilyjs/antd-v6"/>
+<img src="https://img.shields.io/npm/dm/@ducui-formilyjs/antd-v6"/>
+<a href="https://www.npmjs.com/package/@ducui-formilyjs/antd-v6"><img src="https://img.shields.io/npm/v/@ducui-formilyjs/antd-v6.svg"></a>
 <a href="https://codecov.io/gh/formilyjs/antd">
   <img src="https://codecov.io/gh/formilyjs/antd/branch/master/graph/badge.svg?token=3V9RU8Wh9d"/>
 </a>

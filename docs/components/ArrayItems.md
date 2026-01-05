@@ -18,7 +18,7 @@ import {
   FormButtonGroup,
   Submit,
   Space,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 
@@ -146,7 +146,7 @@ export default () => {
               title="input box"
               name="input"
               x-component="Input"
-              x-component-props={{ bordered: false }}
+              x-component-props={{ variant: 'borderless' }}
             />
             <SchemaField.Object
               name="config"
@@ -207,7 +207,7 @@ import {
   FormButtonGroup,
   Submit,
   Space,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 
@@ -437,7 +437,7 @@ import {
   FormButtonGroup,
   Submit,
   Space,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm, onFieldChange, onFieldReact } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 
@@ -569,7 +569,7 @@ import {
   FormButtonGroup,
   Submit,
   Space,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 

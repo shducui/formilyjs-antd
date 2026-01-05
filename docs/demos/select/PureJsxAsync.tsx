@@ -1,5 +1,10 @@
 import React from 'react'
-import { Select, FormItem, FormButtonGroup, Submit } from '@ducui/antd-v6'
+import {
+  Select,
+  FormItem,
+  FormButtonGroup,
+  Submit,
+} from '@ducui-formilyjs/antd-v6'
 import {
   createForm,
   onFieldReact,

@@ -1,4 +1,4 @@
-import { FormGrid } from '@ducui/antd-v6'
+import { FormGrid } from '@ducui-formilyjs/antd-v6'
 import React from 'react'
 
 const { GridColumn } = FormGrid

@@ -14,7 +14,7 @@ import {
   ArrayCollapse,
   FormButtonGroup,
   Submit,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 import { Button, Typography } from 'antd'
@@ -171,7 +171,7 @@ import {
   ArrayCollapse,
   FormButtonGroup,
   Submit,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 
@@ -351,7 +351,7 @@ import {
   ArrayCollapse,
   FormButtonGroup,
   Submit,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm, onFieldChange, onFieldReact } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 
@@ -456,7 +456,7 @@ import {
   ArrayCollapse,
   FormButtonGroup,
   Submit,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
 

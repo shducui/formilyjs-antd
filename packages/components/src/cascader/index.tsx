@@ -2,6 +2,7 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { connect, mapProps, mapReadPretty } from '@formily/react'
 import { Cascader as AntdCascader } from 'antd'
 import React from 'react'
+import { normalizeVariantProps } from '../__builtins__'
 import { PreviewText } from '../preview-text'
 
 export const Cascader = connect(
@@ -11,13 +12,17 @@ export const Cascader = connect(
       dataSource: 'options',
     },
     (props, field) => {
+      const nextProps = normalizeVariantProps(props, {
+        borderedTrueVariant: 'outlined',
+        borderedFalseVariant: 'borderless',
+      })
       return {
-        ...props,
+        ...nextProps,
         suffixIcon:
           field?.['loading'] || field?.['validating'] ? (
             <LoadingOutlined />
           ) : (
-            props.suffixIcon
+            nextProps.suffixIcon
           ),
       }
     }

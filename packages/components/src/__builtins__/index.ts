@@ -1,4 +1,5 @@
 export * from './dayjs'
+export * from './compat'
 export * from './hooks'
 export * from './loading'
 export * from './pickDataProps'

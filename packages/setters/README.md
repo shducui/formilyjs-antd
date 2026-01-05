@@ -1,9 +1,9 @@
-# @ducui/antd-v6-setters
+# @ducui-formilyjs/antd-v6-setters
 
 > Formily Designable Component Adaptor
 
 ## Install
 
 ```bash
-npm install @ducui/antd-v6-setters --save
+npm install @ducui-formilyjs/antd-v6-setters --save
 ```

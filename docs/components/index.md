@@ -2,7 +2,7 @@
 
 ## Introduction
 
-@ducui/antd-v6 is a professional component library for form scenarios based on Ant Design V5 encapsulation. It has the following characteristics:
+@ducui-formilyjs/antd-v6 is a professional component library for form scenarios based on Ant Design V6 encapsulation. It has the following characteristics:
 
 - Only Formily 2.x is supported
   - Most components are not backward compatible
@@ -61,7 +61,7 @@
 
 ```bash
 npm install --save antd dayjs
-npm install --save @formily/core @formily/react @ducui/antd-v6
+npm install --save @formily/core @formily/react @ducui-formilyjs/antd-v6
 
 ```
 

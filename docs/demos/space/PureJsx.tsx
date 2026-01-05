@@ -5,7 +5,7 @@ import {
   Input,
   Space,
   Submit,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 import { createForm } from '@formily/core'
 import { Field, FormProvider, VoidField } from '@formily/react'
 import React from 'react'

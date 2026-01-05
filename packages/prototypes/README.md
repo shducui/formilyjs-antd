@@ -1,9 +1,9 @@
-# @ducui/antd-v6-prototypes
+# @ducui-formilyjs/antd-v6-prototypes
 
 > Formily Designable Component Adaptor
 
 ## Install
 
 ```bash
-npm install @ducui/antd-v6-prototypes --save
+npm install @ducui-formilyjs/antd-v6-prototypes --save
 ```

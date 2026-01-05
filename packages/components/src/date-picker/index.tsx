@@ -2,8 +2,12 @@ import { connect, mapProps, mapReadPretty } from '@formily/react'
 import { DatePicker as AntdDatePicker } from 'antd'
 import { DatePickerProps as AntdDatePickerProps } from 'antd/es/date-picker'
 import dayjs from 'dayjs'
+import {
+  dayjsable,
+  formatDayjsValue,
+  normalizeVariantProps,
+} from '../__builtins__'
 import { PreviewText } from '../preview-text'
-import { dayjsable, formatDayjsValue } from '../__builtins__'
 
 type DatePickerProps<PickerProps> = Exclude<
   PickerProps,
@@ -27,12 +31,19 @@ const mapDateFormat = function () {
     return props['showTime'] ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD'
   }
   return (props: any) => {
-    const format = props['format'] || getDefaultFormat(props)
-    const onChange = props.onChange
+    const nextProps = normalizeVariantProps(props, {
+      borderedTrueVariant: 'outlined',
+      borderedFalseVariant: 'borderless',
+    })
+    const format = nextProps['format'] || getDefaultFormat(nextProps)
+    const onChange = nextProps.onChange
     return {
-      ...props,
+      ...nextProps,
       format: format,
-      value: dayjsable(props.value, format === 'gggg-wo' ? 'gggg-ww' : format),
+      value: dayjsable(
+        nextProps.value,
+        format === 'gggg-wo' ? 'gggg-ww' : format
+      ),
       onChange: (value: dayjs.Dayjs | dayjs.Dayjs[]) => {
         if (onChange) {
           onChange(formatDayjsValue(value, format))

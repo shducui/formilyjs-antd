@@ -11,7 +11,7 @@ import {
   Submit,
   Reset,
   FormButtonGroup,
-} from '@ducui/antd-v6'
+} from '@ducui-formilyjs/antd-v6'
 
 const useCollapseGrid = (maxRows: number) => {
   const grid = useMemo(

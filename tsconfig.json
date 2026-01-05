@@ -17,7 +17,7 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@ducui/antd-v6": ["packages/components/src"]
+      "@ducui-formilyjs/antd-v6": ["packages/components/src"]
     },
     "lib": ["ESNext", "DOM"]
   }

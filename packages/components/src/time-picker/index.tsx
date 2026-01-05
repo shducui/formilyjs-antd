@@ -5,8 +5,12 @@ import {
   TimeRangePickerProps,
 } from 'antd'
 import dayjs from 'dayjs'
+import {
+  dayjsable,
+  formatDayjsValue,
+  normalizeVariantProps,
+} from '../__builtins__'
 import { PreviewText } from '../preview-text'
-import { dayjsable, formatDayjsValue } from '../__builtins__'
 
 type ComposedTimePicker = React.FC<
   React.PropsWithChildren<AntdTimePickerProps>
@@ -16,12 +20,16 @@ type ComposedTimePicker = React.FC<
 
 const mapTimeFormat = function () {
   return (props: any) => {
-    const format = props['format'] || 'HH:mm:ss'
-    const onChange = props.onChange
+    const nextProps = normalizeVariantProps(props, {
+      borderedTrueVariant: 'outlined',
+      borderedFalseVariant: 'borderless',
+    })
+    const format = nextProps['format'] || 'HH:mm:ss'
+    const onChange = nextProps.onChange
     return {
-      ...props,
+      ...nextProps,
       format,
-      value: dayjsable(props.value, format),
+      value: dayjsable(nextProps.value, format),
       onChange: (value: dayjs.Dayjs | dayjs.Dayjs[]) => {
         if (onChange) {
           onChange(formatDayjsValue(value, format))

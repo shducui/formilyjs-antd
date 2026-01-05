@@ -2,6 +2,7 @@ import { connect, mapReadPretty } from '@formily/react'
 import { Input } from 'antd'
 import { PasswordProps } from 'antd/lib/input'
 import React from 'react'
+import { normalizeVariantProps } from '../__builtins__'
 import { PreviewText } from '../preview-text'
 import { PasswordStrength } from './PasswordStrength'
 
@@ -11,6 +12,10 @@ export interface IPasswordProps extends PasswordProps {
 
 export const Password = connect((props: IPasswordProps) => {
   const { value, className, checkStrength, ...others } = props
+  const nextProps = normalizeVariantProps(others, {
+    borderedTrueVariant: 'outlined',
+    borderedFalseVariant: 'borderless',
+  })
   const blockStyle: React.CSSProperties = {
     position: 'absolute',
     zIndex: 1,
@@ -22,7 +27,7 @@ export const Password = connect((props: IPasswordProps) => {
   }
   return (
     <span className={className}>
-      <Input.Password {...others} value={value} />
+      <Input.Password {...nextProps} value={value} />
       {checkStrength && (
         <PasswordStrength value={String(value)}>
           {(score) => {
